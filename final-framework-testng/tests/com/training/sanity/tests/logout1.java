@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -17,11 +15,11 @@ import com.training.pom.logoutpom;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class LoginTests {
+public class logout1 {
 
 	private static WebDriver driver;
 	private static String baseUrl;
-	private static LoginPOM loginPOM;
+//	private static LoginPOM loginPOM;
 	private static Properties properties;
 	private static ScreenShot screenShot;
 	private static logoutpom logout;
@@ -34,7 +32,7 @@ public class LoginTests {
 		
 		
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		loginPOM = new LoginPOM(driver); 
+	//	loginPOM = new LoginPOM(driver); 
 		logout = new logoutpom(driver);
 		baseUrl = properties.getProperty("baseURL");
 		//screenShot = new ScreenShot(driver); 
@@ -48,16 +46,16 @@ public class LoginTests {
 //	}
 //	
 	
-	@Test
-	public void validLoginTest() throws InterruptedException {
-		loginPOM.sendUserName("Pradeep_20");
-		loginPOM.sendPassword("Pradeep123");
-		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("First");
-		Thread.sleep(3000);
-		
-	}
-	
+//	@Test
+//	public void validLoginTest() throws InterruptedException {
+//		loginPOM.sendUserName("Pradeep_20");
+//		loginPOM.sendPassword("Pradeep123");
+//		loginPOM.clickLoginBtn(); 
+//		screenShot.captureScreenShot("First");
+//		Thread.sleep(3000);
+//		
+//	}
+//	
 	@Test
 	public void validLogoutTest() {
 		logout.clickLogoutBtn();
@@ -67,7 +65,7 @@ public class LoginTests {
 	public void tearDown() throws Exception {
 		//logout.clickLogoutBtn();
 		Thread.sleep(1000);
-		//driver.quit();
+		driver.quit();
 	}
 	
 	
